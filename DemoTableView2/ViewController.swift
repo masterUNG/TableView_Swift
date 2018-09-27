@@ -8,7 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let nameStrings = ["Dormon", "Doramy", "Nopita", "Sunako", "MasterUNG"]
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return nameStrings.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = nameStrings[indexPath.row]
+        return cell
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
